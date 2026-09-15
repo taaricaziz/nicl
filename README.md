@@ -5,9 +5,12 @@ National Insurance Company Limited, the Government of Pakistan's insurer of
 public property under Section 166(3) of the Insurance Ordinance, 2000.
 
 This is a **static site with no build step**: eight HTML pages, one
-stylesheet and one script. Open `index.html` in a browser, or serve the
-directory with anything that serves files. It deploys unchanged to Vercel,
-Netlify, GitHub Pages, cPanel or as the static layer of a WordPress theme.
+stylesheet and one script. Serve the directory with any static file server
+(`python3 -m http.server`, for instance). Links are extensionless (`/cover`,
+`/claims`), which `vercel.json` maps to the `.html` files with `cleanUrls`;
+on another host, enable the equivalent rewrite or add the extensions back.
+
+Live at https://nicl-website.vercel.app, deployed from `main`.
 
 ## Pages
 
@@ -21,6 +24,25 @@ Netlify, GitHub Pages, cPanel or as the static layer of a WordPress theme.
 | `tenders.html` | Tender register under the Public Procurement Rules, 2004, with bidder grievance |
 | `careers.html` | Vacancies and how selection works |
 | `complaints.html` | Internal complaints, then the Ombudsman, SECP, SDRC and Insurance Tribunal |
+| `404.html` | Not-found page, served by Vercel for unknown paths |
+| `sitemap.xml`, `robots.txt` | Search-engine plumbing |
+
+## Logo
+
+The mark is a **proposed identity for the redesign, not NICL's official
+logo**: a roundel in state green carrying an eight-point star in brass, the
+same star that forms the lattice behind the home-page hero. It exists as:
+
+- `assets/logo.svg`: horizontal lockup, emblem and wordmark, fixed colours
+- `assets/logo-mark.svg`: emblem alone, for print and third parties
+- `assets/favicon.svg`: emblem tuned for the tab
+- `assets/og.png`: the 1200x630 social-preview card
+- inline SVG in every page's header and footer, coloured from the theme
+  tokens so it follows light and dark mode
+
+To switch to the official logo, replace the four files above and the inline
+`<svg>` inside the `.brand` links (identical in every page), then regenerate
+`og.png`.
 
 ## Design
 
