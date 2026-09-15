@@ -201,9 +201,21 @@ p + p { margin-top: 1em; }
 }
 .header .wrap { display: flex; align-items: center; gap: 1.5rem; min-height: 4.25rem; }
 .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; color: var(--ink); }
-.brand svg { width: 2.5rem; height: 2.5rem; flex: none; }
+/* The official lockup is blue-and-black artwork on a transparent ground, so
+   it sits on a white plate that disappears in the light theme and reads as a
+   seal in the dark one. */
+.brand-lockup { height: 3.75rem; width: auto; display: block; background: #fff; padding: .35rem .6rem; border-radius: var(--radius); }
+.brand-emblem { width: 3.25rem; height: auto; flex: none; }
+.brand-compact { display: none; align-items: center; gap: .7rem; }
 .brand-name { font-family: var(--font-display); font-size: 1.35rem; line-height: 1; letter-spacing: -.01em; }
 .brand-sub { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-top: .3rem; }
+/* Below tablet width the lockup's caption would be unreadable, so the header
+   shows the emblem with the name set in the site's own type instead. */
+@media (max-width: 640px) {
+  .header .brand-lockup { display: none; }
+  .header .brand-compact { display: flex; }
+  .header .brand-emblem { width: 2.75rem; }
+}
 .nav { margin-left: auto; }
 .nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .25rem; }
 .nav a {

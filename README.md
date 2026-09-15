@@ -29,20 +29,18 @@ Live at https://nicl-website.vercel.app, deployed from `main`.
 
 ## Logo
 
-The mark is a **proposed identity for the redesign, not NICL's official
-logo**: a roundel in state green carrying an eight-point star in brass, the
-same star that forms the lattice behind the home-page hero. It exists as:
+`assets/logo-nicl.png` is NICL's official lockup (emblem, wordmark and
+"Government of Pakistan"), supplied by the client, 3682x671 with a
+transparent background. It is used as-is in the header, on a white plate so
+the blue artwork also reads in the dark theme. `assets/logo-emblem.png` is
+the roundel cropped from it, used in the footer, as the favicon and
+touch icon, on the social-preview card (`assets/og.png`), and in the header
+below 640px where the full lockup's caption would be too small to read.
 
-- `assets/logo.svg`: horizontal lockup, emblem and wordmark, fixed colours
-- `assets/logo-mark.svg`: emblem alone, for print and third parties
-- `assets/favicon.svg`: emblem tuned for the tab
-- `assets/og.png`: the 1200x630 social-preview card
-- inline SVG in every page's header and footer, coloured from the theme
-  tokens so it follows light and dark mode
-
-To switch to the official logo, replace the four files above and the inline
-`<svg>` inside the `.brand` links (identical in every page), then regenerate
-`og.png`.
+The crop was made without resampling, so the emblem's pixels are exactly
+the original's. If a vector version of the logo becomes available, replace
+both files with SVGs of the same names and adjust the two `<img>` tags in
+the shared header and footer.
 
 ## Design
 
